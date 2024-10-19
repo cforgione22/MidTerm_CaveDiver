@@ -29,25 +29,10 @@ import java.util.random.RandomGenerator;
 public abstract class Main {
     public static void main(String[] args) {
         JFrame frame = new BorderLayout();
-        ((JFrame)frame).setDefaultCloseOperation(3);
-        ((JFrame)frame).setVisible(true);
+        ((JFrame) frame).setDefaultCloseOperation(3);
+        ((JFrame) frame).setVisible(true);
 
-        diverArray();
-    }
-
-    public static void diverArray() {
-        int[][] array_2D = new int[10][10];
-        Random random = new Random();
-
-            for (int i = 0; i < array_2D.length; i++) {
-                for (int j = 0; j < 10; j++) {
-                    int randomNumGenerator = random.nextInt(0, 10);
-                    array_2D[i][j] = randomNumGenerator;
-                }
-            System.out.println(Arrays.toString(array_2D[i]));
-            }
 
     }
+
 }
-
-

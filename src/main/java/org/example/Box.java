@@ -15,19 +15,21 @@ import java.awt.*;
 public class Box {
 
     private Point point1;
-    private Color color;
+    private Color color = new Color(0x12128E);
     private int lineWidth = 1;
     final static int height = 60;
     final static int width = 60;
+
+    private int depth;
 
     public Box() {
         point1 = new Point(0, 0);
         color = Color.BLUE;
     }
 
-    public Box(Point point1, Color c) {
+    public Box(Point point1, int depth) {
         setP1(point1);
-        setColor(c);
+        this.depth = depth;
     }
 
     public void setP1(Point p1) {
@@ -57,6 +59,7 @@ public class Box {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke((float) this.getLineWidth()));
+        g2.drawString(String.valueOf(depth), this.getP1().x + 15, this.getP1().y + 15);
         g2.setColor(this.getColor());
         g2.drawRect(this.getP1().x, this.getP1().y, width, height);
     }

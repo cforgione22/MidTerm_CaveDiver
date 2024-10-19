@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BorderLayout extends JFrame {
     private static final int FRAME_WIDTH = 2000;
@@ -14,6 +12,7 @@ public class BorderLayout extends JFrame {
     private CanvasComponent scene = new CanvasComponent();
     private JPanel panel;
     private JPanel panel2;
+
     public BorderLayout() {
 
 
@@ -38,19 +37,19 @@ public class BorderLayout extends JFrame {
 //        this.setSize(3000, 2500);
 //        this.setLocation(this.bottom);
 
-       final int FRAME_WIDTH = 1500;
-       final int FRAME_HEIGHT = 1500;
-       setSize(FRAME_WIDTH,FRAME_HEIGHT);
-       setTitle("Cave Diver.Java II - Midterm");
-       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       setVisible(true);
+        final int FRAME_WIDTH = 1500;
+        final int FRAME_HEIGHT = 1500;
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setTitle("Cave Diver.Java II - Midterm");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 
 
         this.panel2 = new JPanel();
         this.add(this.panel2);
 
         JLabel label1 = new JLabel("Tates a big boy");
-        this.panel2.add(label1,BorderLayout.TOP_ALIGNMENT);
+        this.panel2.add(label1, BorderLayout.TOP_ALIGNMENT);
 
         JLabel label2 = new JLabel("Halloween");
         this.panel2.add(label2);
@@ -66,11 +65,7 @@ public class BorderLayout extends JFrame {
 
         panel.setLayout(new java.awt.BorderLayout());
         panel.add(this.scene, "Center");
-}
-
-
-
-
+    }
 
 
     class MouseListener extends MouseAdapter {
@@ -86,6 +81,7 @@ public class BorderLayout extends JFrame {
         }
     }
 }
+
 
 
 
