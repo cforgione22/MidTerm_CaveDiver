@@ -15,12 +15,12 @@ import java.awt.*;
 public class Box {
 
     private Point point1;
-    private Color color = new Color(0x12128E);
+    private Color color = new Color(0xFFFFFF);
     private int lineWidth = 1;
     final static int height = 60;
     final static int width = 60;
-
     private int depth;
+    //private Color depthColor = new Color(0xFFFFFF);
 
     public Box() {
         point1 = new Point(0, 0);
@@ -59,11 +59,49 @@ public class Box {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke((float) this.getLineWidth()));
+        depthColor(g2);
+        g2.setColor(getColor());
+        g2.fillRect(this.getP1().x, this.getP1().y, width, height);
+        g2.setColor(Color.white);
         g2.drawString(String.valueOf(depth), this.getP1().x + 15, this.getP1().y + 15);
-        g2.setColor(this.getColor());
-        g2.drawRect(this.getP1().x, this.getP1().y, width, height);
     }
 
+
+    public void depthColor(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        switch (depth) {
+            case 1:
+                color = new Color(0x2736A5);
+                break;
+            case 2:
+                color = new Color(0x1E2D9E);
+                break;
+            case 3:
+                color = new Color(0x17258E);
+                break;
+            case 4:
+                color = new Color(0x0F1B91);
+                break;
+            case 5:
+                color = new Color(0x0A1677);
+                break;
+            case 6:
+                color = new Color(0x0B1760);
+                break;
+            case 7:
+                color = new Color(0x05123E);
+                break;
+            case 8:
+                color = new Color(0x040B39);
+                break;
+            case 9:
+                color = new Color(0x01091E);
+                break;
+            case 10:
+                color = new Color(0x000000);
+                break;
+        }
+    }
 }
 
 
