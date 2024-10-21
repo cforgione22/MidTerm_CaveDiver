@@ -8,10 +8,12 @@ public class Grid {
     public Grid() {
     }
 
+    static int userNum;
+    static int[][] array_2D = new int[10][10];
+
     public static void paint(Graphics g) {
 
         Graphics2D g2 = (Graphics2D) g;
-        int[][] array_2D = new int[10][10];
         Random random = new Random();
 
         for (int y = 0; y < 10; y++) {
@@ -23,27 +25,17 @@ public class Grid {
                 box.paint(g2);
             }
         }
-
-        diverPath(array_2D, g2);
     }
 
-    public static void diverPath(int[][] array_2D, Graphics2D g) {
-        diverPath(20, array_2D, 0, 0, g);
+    public static boolean diverPath(Graphics g) {
+        return diverPath(20, array_2D, 0, 0, (Graphics2D) g);
     }
 
     public static boolean diverPath(int breath, int[][] array_2D, int i, int j, Graphics2D g) {
-        int userNum = 7;
-
-        breath--;
         if (breath <= 0) {
             return false;
         }
-
-        if (i == 9 && j == 9) {
-            g.setColor(new Color(0xCDBD0B1A, true));
-            g.fillRect((j + 7) * 60, (i + 1) * 60, 60, 60);
-            return true;
-        }
+        breath--;
 
         if (i >= array_2D.length || j >= array_2D.length) {
             return false;
@@ -52,6 +44,12 @@ public class Grid {
         int arrayNum = array_2D[i][j];
         if (arrayNum > userNum) {
             return false;
+        }
+
+        if (i == 9 && j == 9) {
+            g.setColor(new Color(0xCDBD0B1A, true));
+            g.fillRect((j + 7) * 60, (i + 1) * 60, 60, 60);
+            return true;
         }
 
         if (!diverPath(breath, array_2D, i, j + 1, g) && !diverPath(breath, array_2D, i + 1, j, g)) {
