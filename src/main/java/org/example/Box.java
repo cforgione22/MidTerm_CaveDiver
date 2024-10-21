@@ -56,8 +56,7 @@ public class Box {
     public void setLineWidth(int lineWidth) {
         this.lineWidth = lineWidth;
     }
-    public void paint(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
+    public void paint(Graphics2D g2) {
         g2.setStroke(new BasicStroke((float) this.getLineWidth()));
         depthColor(g2);
         g2.setColor(getColor());
