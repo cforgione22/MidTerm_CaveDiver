@@ -51,9 +51,14 @@ public class Grid {
             g.fillRect((j + 7) * 60, (i + 1) * 60, 60, 60);
             return true;
         }
+        /**
+         * if the left side is true then there is no path, then the program looks at the right side.
+         * if the right if is true then it returns false and there is no path.
+         */
 
         if (!diverPath(breath, array_2D, i, j + 1, g) && !diverPath(breath, array_2D, i + 1, j, g)) {
             return false;
+
         }
 
         g.setColor(new Color(0xCDBD0B1A, true));
